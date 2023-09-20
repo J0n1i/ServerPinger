@@ -9,6 +9,7 @@ let interval = 5
 let emails = []
 let hostAlive = true
 let writeLog = false
+let sendStartEmail = false;
 
 let transporter = nodemailer.createTransport({
     service: "gmail",
@@ -36,6 +37,13 @@ if (isNaN(interval)) {
 
 writeLog = prompt("Write log to file? (y/n) (default: no): ", "n")
 
+if (prompt("Send start email? (y/n) (default: no): ", "n") == "y") {
+    sendStartEmail = true
+}
+
+
+
+
 const startDate = new Date().toLocaleString().replace(/\//g, "-").replace(/:/g, "-").replace(/,/g, "")
 const logFileName = "ServerPinger log-" + startDate + ".txt"
 
@@ -52,8 +60,9 @@ if (writeLog == "y") {
 
 CustomLog("Starting...")
 
-sendMail("ServerPinger started!", "Date: " + new Date().toLocaleString() + "\nHost: " + host + "\nInterval: " + interval + "s\nEmail list: " + emails + "\n\nDo not reply to this email.")
-
+if (sendStartEmail == true) {
+    sendMail("ServerPinger started!", "Date: " + new Date().toLocaleString() + "\nHost: " + host + "\nInterval: " + interval + "s\nEmail list: " + emails + "\n\nDo not reply to this email.")
+}
 
 //initial ping
 ping.promise.probe(host).then((res) => {
