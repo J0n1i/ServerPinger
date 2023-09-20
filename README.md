@@ -16,8 +16,8 @@ ServerPinger is a simple tool designed to monitor the availability of a server a
 * **Send start email?**: Enter 'y' or 'n' to send startup email(s) when pinger starts
 
 ## Example
-Enter host address: 192.168.1.103
-Enter email address(es): test@email.com
-Enter interval (default: 5s): 60
-Write log to file? (y/n) (default: no): n
-Send start email? (y/n) (default: no): n
+Enter host address: 192.168.1.103  
+Enter email address(es): test@email.com  
+Enter interval (default: 5s): 60  
+Write log to file? (y/n) (default: no): n  
+Send start email? (y/n) (default: no): n  
