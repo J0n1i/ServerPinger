@@ -22,7 +22,7 @@ let transporter = nodemailer.createTransport({
 //prompt user for host, email, interval, and log file
 host = prompt("Enter host address: ")
 
-const emailInput = prompt("Enter email address (separate multiple addresses with ,): ")
+const emailInput = prompt("Enter email address(es): ")
 emails = emailInput.split(",")
 
 interval = prompt("Enter interval (default: 5s): ", 5)
